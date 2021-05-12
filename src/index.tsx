@@ -21,7 +21,7 @@ class Hello extends React.Component<HelloProps> {
 
 // Hello コンポーネントを <div id="root"> に表示
 ReactDom.render(
-  <ReactPDF.Document file="xxx.pdf">
+  <ReactPDF.Document file="../resources/xxx.pdf">
     <ReactPDF.Page pageNumber={1} />
   </ReactPDF.Document>,
   document.getElementById('root')
