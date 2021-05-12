@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "target": "ES2015",
+      "module": "commonjs",
+      "lib": ["esnext", "dom"],
+      "jsx": "react",  // .tsx ファイル内の JSX 記述を認識
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "types": [
+        "node"
+      ],
+  
+      // 出力先などは webpack 側で指定するので本質的には必要なし
+      "sourceMap": true,
+      "outDir": "./dist",
+      "sourceRoot": "./src",
+    },
+    "include": [
+        "./**/*", "./**/*.tsx"
+    ],
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./test/**/*.ts",
+        "./typings/index.d.ts",
+        "./custom_typings/**/*.d.ts",
+        "./node_modules/@types/**/*.d.ts"
+    ],
+}
