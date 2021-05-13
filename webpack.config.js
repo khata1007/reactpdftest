@@ -40,6 +40,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    // フォントのmap設定。react-pdfのリポジトリにある書き方は若干古い
     new CopyWebpackPlugin({
       patterns: [
         {
