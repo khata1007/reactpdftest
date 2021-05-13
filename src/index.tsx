@@ -3,10 +3,10 @@ import * as ReactDom from 'react-dom';
 //import * as ReactPDF from 'react-pdf';
 import {Document, Page, pdfjs} from 'react-pdf/dist/umd/entry.webpack';
 
-//pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+pdfjs.GlobalWorkerOptions.workerSrc = "pdf.worker.js";
 
 ReactDom.render(
-  <Document file="./xxx.pdf" >
+  <Document file="./xxx.pdf" options={{cMapUrl: "cmaps/", cMapPacked: true,}}>
     <Page pageNumber={1} />
   </Document>,
   document.getElementById('root')

@@ -15,6 +15,7 @@
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",
     "@types/react-pdf": "^5.0.2",
+    "copy-webpack-plugin": "^8.1.1",
     "html-webpack-plugin": "^5.3.1",
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   // 開発用の設定
@@ -38,6 +39,14 @@ module.exports = {
     // HTML ファイルの出力設定
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "node_modules/pdfjs-dist/cmaps/",
+          to: "cmaps/",
+        },
+      ],
+    }),
   ]
 };
