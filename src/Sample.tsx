@@ -18,6 +18,7 @@ type FileState = {
 function Sample() {
     const [file, setFile] = useState<File | null>(null);
     const [numPages, setNumPages] = useState<number | null>(null);
+    const [nowPage, setNowPage] = useState<number>(1);
 
     function onFileChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (event.target === null) return;
@@ -27,6 +28,9 @@ function Sample() {
     
     function onDocumentLoadSuccess({ numPages: nextNumPages }: NumPages) {
         setNumPages(nextNumPages);
+    }
+    function onPageProcess(){
+        if (numPages !== null && nowPage + 1 <= numPages) setNowPage(nowPage + 1);
     }
 
     return (
@@ -44,25 +48,31 @@ function Sample() {
                     />
                 </div>
                 <div className="Example__container__document">
-                    { file &&
-                      <Document
-                          file={file}
-                          onLoadSuccess={onDocumentLoadSuccess}
-                          options={options}
-                      >
-                          {
-                              Array.from(
-                                  new Array(numPages),
-                                  (el, index) => (
-                                      <Page
-                                          key={`page_${index + 1}`}
-                                          pageNumber={index + 1}
-                                      />
-                                  ),
-                              )
-                          }
-                      </Document>
-                    }
+                { 
+                    file &&
+                    <Document
+                      file={file}
+                      onLoadSuccess={onDocumentLoadSuccess}
+                      options={options}
+                    >
+                    {/* {
+                        Array.from(
+                            new Array(numPages),
+                            (el, index) => (
+                                <Page
+                                    key={`page_${index + 1}`}
+                                    pageNumber={index + 1}
+                                />
+                            ),
+                        )
+                    } */}
+                    <Page key={`page_1`} pageNumber={nowPage}/>
+                    </Document>
+                }
+                <input type="text" value={"aaa"} />
+                <button onClick={() => { onPageProcess(); }} >
+                    {'next'}
+                </button>
                 </div>
             </div>
         </div>
